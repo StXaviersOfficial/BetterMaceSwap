@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "bettermaceswap",
+	"version": "${version}",
+	"name": "BetterMaceSwap",
+	"description": "Mace PvP practice tool: Attribute Swap, Stun Slam, Pearl Catch, Aim Assist, Gear Up kits and more.",
+	"authors": [
+		"RITESH_911"
+	],
+	"contact": {
+		"sources": "https://github.com/thatzritesh911/BetterMaceSwap/tree/5.0.0-26.2",
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/bettermaceswap"
+	},
+	"license": "MIT",
+	"icon": "assets/bettermaceswap/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.ritesh.Bettermaceswap"
+		],
+		"client": [
+			"com.ritesh.BettermaceswapClient"
+		],
+		"modmenu": [
+			"com.ritesh.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"bettermaceswap.mixins.json",
+		{
+			"config": "bettermaceswap.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*",
+		"cloth-config2": "*",
+		"modmenu": "*"
+	}
+}
