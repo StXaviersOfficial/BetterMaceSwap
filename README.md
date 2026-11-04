@@ -41,7 +41,7 @@ A client-side Fabric mod that automates mace PvP combat sequences — no manual 
 
 1. Install [Fabric Loader 0.19.5+](https://fabricmc.net/use/installer/)
 2. Install **Fabric API**, **Cloth Config** and **Mod Menu**
-3. Download the latest jar from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/bettermaceswap) or [Modrinth](https://modrinth.com/mod/bettermaceswap)
+3. Download the latest jar from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/bettermaceswap)
 4. Drop it into `.minecraft/mods` and launch
 
 ## Commands
