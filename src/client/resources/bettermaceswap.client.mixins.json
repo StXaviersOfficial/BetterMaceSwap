@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "com.ritesh.mixin",
+    "compatibilityLevel": "JAVA_25",
+    "client": [
+        "ClientPlayerEntityMixin",
+        "AttackMixin",
+        "InventoryAccessor",
+        "LungeAttackMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
