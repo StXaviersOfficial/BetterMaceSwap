@@ -13,6 +13,8 @@ on:
         description: 'gradle command'
         required: false
         default: 'build'
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,4 +40,21 @@ jobs:
           path: |
             build/libs/*.jar
             */build/libs/*.jar
-          if-no-files-found: error
+            */*/build/libs/*.jar
+          if-no-files-found: warn
+      - name: Publish jars to xd-dist branch
+        if: ${{ success() }}
+        run: |
+          git config user.name "xd-ci"
+          git config user.email "ci@xd.local"
+          git checkout -B xd-dist
+          rm -rf dist && mkdir -p dist
+          find . -path "*/build/libs/*.jar" ! -name "*sources*" -exec cp {} dist/ \; 2>/dev/null || true
+          ls -la dist/ || true
+          if [ -n "$(ls dist/*.jar 2>/dev/null)" ]; then
+            git add dist
+            git commit -m "xd-ci: jars from ${{ inputs.tag }} [skip ci]" || true
+            git push origin xd-dist --force
+          else
+            echo "no jars found to publish"
+          fi
